@@ -1,27 +1,41 @@
 
-/* =========================================
-   LOFI ROOM — GLOBAL DESIGN SYSTEM
-========================================= */
-
 :root {
     color-scheme: dark;
-    --bg: #180f19;
-    --surface: rgba(34, 23, 37, 0.91);
-    --surface-light: rgba(54, 37, 55, 0.82);
-    --border: rgba(238, 207, 206, 0.17);
-    --text: #fff2e8;
-    --muted: #b9a7b5;
-    --peach: #f2c9ad;
-    --peach-light: #ffddc4;
-    --pink: #dfa9b6;
-    --plum: #69516f;
-    --green: #9ed8b8;
-    --radius: 22px;
-    --shadow: 0 22px 70px rgba(7, 3, 10, 0.42);
-    --max-width: 1440px;
+
+    /* Surfaces */
+    --bg:               #180f19;
+    --surface:          rgba(34, 23, 37, 0.91);   /* reserved */
+    --surface-light:    rgba(54, 37, 55, 0.82);   /* reserved */
+
+    /* Lines */
+    --border:           rgba(238, 207, 206, 0.17);
+
+    /* Text */
+    --text:             #fff2e8;
+    --muted:            #b9a7b5;
+
+    /* Brand */
+    --peach:            #f2c9ad;
+    --peach-light:      #ffddc4;
+    --pink:             #dfa9b6;
+    --plum:             #69516f;                  /* reserved */
+    --green:            #9ed8b8;
+
+    /* Shape & motion */
+    --radius:           22px;
+    --shadow:           0 22px 70px rgba(7, 3, 10, 0.42);
+    --max-width:        1440px;
+    --transition:       0.2s ease;
 }
 
-* {
+
+/* ============================================================
+   §2  BASE & RESET
+   ============================================================ */
+
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
 
@@ -60,16 +74,14 @@ button {
     cursor: pointer;
 }
 
+button:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
 a {
     color: inherit;
     text-decoration: none;
-}
-
-button:focus-visible,
-a:focus-visible,
-input:focus-visible {
-    outline: 2px solid var(--peach);
-    outline-offset: 4px;
 }
 
 h1,
@@ -100,10 +112,41 @@ h3 {
     font-size: 1.05rem;
 }
 
-button:disabled {
-    opacity: 0.55;
-    cursor: not-allowed;
+
+/* ============================================================
+   §3  FOCUS & ACCESSIBILITY
+   ============================================================ */
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid var(--peach);
+    outline-offset: 4px;
 }
+
+button:focus:not(:focus-visible),
+a:focus:not(:focus-visible) {
+    outline: none;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+
+/* ============================================================
+   §4  TYPOGRAPHY HELPERS
+   ============================================================ */
 
 .eyebrow {
     color: var(--peach);
@@ -125,9 +168,10 @@ button:disabled {
     margin-bottom: 0;
 }
 
-/* =========================================
-   BACKGROUND ATMOSPHERE
-========================================= */
+
+/* ============================================================
+   §5  BACKGROUND ATMOSPHERE
+   ============================================================ */
 
 .app-page,
 .auth-page,
@@ -176,13 +220,14 @@ body[data-vibe="forest"] {
 
     @keyframes ambient-glow {
         from { opacity: 0.75; }
-        to { opacity: 1; }
+        to   { opacity: 1; }
     }
 }
 
-/* =========================================
-   NAVIGATION AND BRAND
-========================================= */
+
+/* ============================================================
+   §6  NAVIGATION & BRAND
+   ============================================================ */
 
 .topbar,
 .app-topbar {
@@ -195,6 +240,11 @@ body[data-vibe="forest"] {
     border-bottom: 1px solid rgba(255, 232, 224, 0.1);
     background: rgba(24, 14, 22, 0.68);
     backdrop-filter: blur(20px);
+}
+
+.app-topbar {
+    position: relative;
+    z-index: 2;
 }
 
 .brand {
@@ -232,18 +282,12 @@ body[data-vibe="forest"] {
 .top-nav a {
     color: #d5c5d1;
     font-size: 0.82rem;
-    transition: color 0.2s ease;
+    transition: color var(--transition);
 }
 
 .top-nav a:hover,
 .top-nav a[aria-current="page"] {
     color: var(--peach-light);
-}
-
-.app-topbar {
-    min-height: 74px;
-    position: relative;
-    z-index: 2;
 }
 
 .topbar-status {
@@ -288,7 +332,7 @@ body[data-vibe="forest"] {
 }
 
 .icon-button {
-    transition: background 0.2s, transform 0.2s;
+    transition: background var(--transition), transform var(--transition);
 }
 
 .icon-button:hover {
@@ -303,9 +347,10 @@ body[data-vibe="forest"] {
     font-weight: 800;
 }
 
-/* =========================================
-   BUTTONS
-========================================= */
+
+/* ============================================================
+   §7  BUTTONS
+   ============================================================ */
 
 .button {
     min-height: 46px;
@@ -322,7 +367,7 @@ body[data-vibe="forest"] {
     font-weight: 800;
     font-size: 0.82rem;
     text-align: center;
-    transition: transform 0.2s ease, filter 0.2s ease;
+    transition: transform var(--transition), filter var(--transition);
 }
 
 .button:hover {
@@ -347,9 +392,10 @@ body[data-vibe="forest"] {
     width: 100%;
 }
 
-/* =========================================
-   GLASS PANELS
-========================================= */
+
+/* ============================================================
+   §8  GLASS PANELS
+   ============================================================ */
 
 .glass-panel {
     border: 1px solid var(--border);
@@ -364,9 +410,48 @@ body[data-vibe="forest"] {
     -webkit-backdrop-filter: blur(24px);
 }
 
-/* =========================================
-   LANDING PAGE
-========================================= */
+
+/* ============================================================
+   §9  FORM FEEDBACK  (added Phase 1)
+   Used by <div class="form-message" role="status">
+   Set data-state="error|success|info" from JS.
+   ============================================================ */
+
+.form-message {
+    margin-bottom: 14px;
+    padding: 10px 12px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    font-size: 0.75rem;
+    line-height: 1.5;
+}
+
+.form-message[hidden] {
+    display: none;
+}
+
+.form-message[data-state="error"] {
+    color: #ffd0d0;
+    background: rgba(180, 60, 70, 0.18);
+    border-color: rgba(220, 100, 110, 0.35);
+}
+
+.form-message[data-state="success"] {
+    color: #c8f0d4;
+    background: rgba(70, 160, 100, 0.15);
+    border-color: rgba(120, 210, 150, 0.35);
+}
+
+.form-message[data-state="info"] {
+    color: var(--text);
+    background: rgba(221, 171, 182, 0.12);
+    border-color: rgba(221, 171, 182, 0.22);
+}
+
+
+/* ============================================================
+   §10  LANDING PAGE
+   ============================================================ */
 
 .landing-hero {
     width: min(1180px, calc(100% - 48px));
@@ -521,9 +606,10 @@ body[data-vibe="forest"] {
     text-align: center;
 }
 
-/* =========================================
-   AUTHENTICATION PAGES
-========================================= */
+
+/* ============================================================
+   §11  AUTH PAGES
+   ============================================================ */
 
 .auth-page {
     min-height: 100vh;
@@ -690,9 +776,10 @@ body[data-vibe="forest"] {
     font-size: 0.62rem;
 }
 
-/* =========================================
-   DASHBOARD LAYOUT
-========================================= */
+
+/* ============================================================
+   §12  DASHBOARD LAYOUT
+   ============================================================ */
 
 .study-layout {
     width: min(var(--max-width), 100%);
@@ -786,9 +873,10 @@ body[data-vibe="forest"] {
     font-weight: 700;
 }
 
-/* =========================================
-   TIMER PANEL
-========================================= */
+
+/* ============================================================
+   §13  TIMER PANEL
+   ============================================================ */
 
 .timer-panel {
     min-height: 380px;
@@ -860,9 +948,10 @@ body[data-vibe="forest"] {
     font-size: 0.67rem;
 }
 
-/* =========================================
-   STUDY ROOM / MEMBERS
-========================================= */
+
+/* ============================================================
+   §14  STUDY ROOM & MEMBERS
+   ============================================================ */
 
 .room-panel {
     padding: 18px;
@@ -900,17 +989,9 @@ body[data-vibe="forest"] {
     font-weight: 800;
 }
 
-.avatar-pink {
-    background: linear-gradient(135deg, #ca92a7, #8b657b);
-}
-
-.avatar-purple {
-    background: linear-gradient(135deg, #a68bc3, #64527f);
-}
-
-.avatar-gold {
-    background: linear-gradient(135deg, #d5ae75, #97734e);
-}
+.avatar-pink   { background: linear-gradient(135deg, #ca92a7, #8b657b); }
+.avatar-purple { background: linear-gradient(135deg, #a68bc3, #64527f); }
+.avatar-gold   { background: linear-gradient(135deg, #d5ae75, #97734e); }
 
 .presence {
     position: absolute;
@@ -977,9 +1058,10 @@ body[data-vibe="forest"] {
     font-size: 0.58rem;
 }
 
-/* =========================================
-   BOTTOM MUSIC PLAYER
-========================================= */
+
+/* ============================================================
+   §15  BOTTOM MUSIC PLAYER
+   ============================================================ */
 
 .music-dock {
     grid-column: 1 / 4;
@@ -1080,9 +1162,10 @@ body[data-vibe="forest"] {
     font-size: 0.68rem;
 }
 
-/* =========================================
-   MUSIC PAGE
-========================================= */
+
+/* ============================================================
+   §16  MUSIC PAGE
+   ============================================================ */
 
 .content-page {
     width: min(1120px, calc(100% - 40px));
@@ -1195,17 +1278,9 @@ body[data-vibe="forest"] {
     font-size: 2rem;
 }
 
-.rain-art {
-    background: linear-gradient(135deg, #645a72, #30253f);
-}
-
-.coffee-art {
-    background: linear-gradient(135deg, #8b6552, #3e2931);
-}
-
-.forest-art {
-    background: linear-gradient(135deg, #5e7b67, #253c35);
-}
+.rain-art   { background: linear-gradient(135deg, #645a72, #30253f); }
+.coffee-art { background: linear-gradient(135deg, #8b6552, #3e2931); }
+.forest-art { background: linear-gradient(135deg, #5e7b67, #253c35); }
 
 .vibe-card strong,
 .vibe-card small {
@@ -1222,9 +1297,10 @@ body[data-vibe="forest"] {
     font-size: 0.6rem;
 }
 
-/* =========================================
-   POMODORO PAGE
-========================================= */
+
+/* ============================================================
+   §17  POMODORO PAGE
+   ============================================================ */
 
 .pomodoro-grid {
     display: grid;
@@ -1320,9 +1396,10 @@ body[data-vibe="forest"] {
     margin-top: 24px;
 }
 
-/* =========================================
-   RESPONSIVE LAYOUT
-========================================= */
+
+/* ============================================================
+   §18  RESPONSIVE LAYOUT
+   ============================================================ */
 
 @media (max-width: 1050px) {
     .study-layout {
@@ -1357,20 +1434,9 @@ body[data-vibe="forest"] {
         grid-column: 2;
     }
 
-    .room-join {
-        grid-row: 1;
-        align-self: end;
-    }
-
-    .room-invite {
-        grid-row: 2;
-        align-self: start;
-    }
-
-    .privacy-note {
-        grid-row: 3;
-        align-self: start;
-    }
+    .room-join    { grid-row: 1; align-self: end; }
+    .room-invite  { grid-row: 2; align-self: start; }
+    .privacy-note { grid-row: 3; align-self: start; }
 
     .music-dock {
         grid-column: 1 / 3;
@@ -1516,6 +1582,11 @@ body[data-vibe="forest"] {
         display: none;
     }
 }
+
+
+/* ============================================================
+   §19  REDUCED MOTION
+   ============================================================ */
 
 @media (prefers-reduced-motion: reduce) {
     *,
