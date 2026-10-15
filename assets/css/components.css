@@ -1,0 +1,190 @@
+label {
+    display: block;
+    font-size: 12px;
+    color: #d4d0e3;
+    font-weight: 650;
+    margin: 14px 0 7px
+}
+
+input:not([type=checkbox]):not([type=range]) {
+    width: 100%;
+    background: #171722;
+    border: 1px solid var(--border);
+    border-radius: 11px;
+    color: var(--text);
+    padding: 12px 13px;
+    outline: none
+}
+
+input::placeholder {
+    color: #69677c
+}
+
+input:focus {
+    border-color: var(--purple)
+}
+
+.password-wrap {
+    position: relative
+}
+
+.password-wrap input {
+    padding-right: 60px !important
+}
+
+.password-toggle {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: 0;
+    color: var(--purple);
+    font-size: 11px;
+    font-weight: 700
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 14px 0 18px;
+    font-size: 11px
+}
+
+.form-row a {
+    color: var(--purple)
+}
+
+.check-label {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin: 0;
+    font-weight: 400;
+    color: var(--muted)
+}
+
+.check-label input {
+    accent-color: var(--purple)
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--muted);
+    font-size: 11px;
+    margin: 19px 0
+}
+
+.divider:before,
+.divider:after {
+    content: "";
+    height: 1px;
+    background: var(--border);
+    flex: 1
+}
+
+.btn-google {
+    background: #fff;
+    color: #333;
+    border-color: #e8e8e8
+}
+
+.google-g {
+    font-size: 17px;
+    font-weight: 800;
+    color: #4285f4
+}
+
+.auth-switch {
+    text-align: center;
+    font-size: 12px;
+    color: var(--muted);
+    margin: 19px 0 0
+}
+
+.auth-switch a {
+    color: var(--purple);
+    font-weight: 700
+}
+
+.tiny-note {
+    font-size: 10px;
+    color: #77758c;
+    text-align: center;
+    margin: 15px 0 0
+}
+
+.vibe-list {
+    display: grid;
+    gap: 7px
+}
+
+.vibe-option {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    width: 100%;
+    padding: 9px;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 12px;
+    text-align: left;
+    color: var(--text)
+}
+
+.vibe-option:hover,
+.vibe-option.active {
+    background: #ffffff06;
+    border-color: var(--border)
+}
+
+.vibe-option>span:nth-child(2) {
+    display: grid;
+    flex: 1
+}
+
+.vibe-option strong {
+    font-size: 12px
+}
+
+.vibe-option small {
+    font-size: 10px;
+    color: var(--muted)
+}
+
+.vibe-check {
+    color: var(--purple);
+    opacity: 0
+}
+
+.vibe-option.active .vibe-check {
+    opacity: 1
+}
+
+.vibe-thumb {
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    font-size: 19px
+}
+
+.rainy-thumb {
+    background: linear-gradient(135deg, #394565, #8575a8)
+}
+
+.coffee-thumb {
+    background: linear-gradient(135deg, #5e4037, #d6a47b)
+}
+
+.library-thumb {
+    background: linear-gradient(135deg, #304e4a, #a0b8a0)
+}
+
+.space-thumb {
+    background: linear-gradient(135deg, #1b1d4b, #795ca7)
+}

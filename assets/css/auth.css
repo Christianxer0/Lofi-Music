@@ -1,0 +1,54 @@
+.auth-page {
+    min-height: 100vh;
+    padding: 28px 20px 50px;
+    background: radial-gradient(ellipse at 20% 10%, #3a2c51 0, transparent 35%), radial-gradient(ellipse at 90% 90%, #302747 0, transparent 40%), var(--bg)
+}
+
+.auth-brand {
+    margin-left: max(0px, calc((100vw - 1120px)/2))
+}
+
+.auth-card {
+    width: min(100%, 430px);
+    margin: 28px auto 0;
+    padding: 30px 32px;
+    border: 1px solid #ffffff16;
+    border-radius: 22px;
+    background: #1d1c2aeb;
+    box-shadow: 0 30px 90px #0005;
+    backdrop-filter: blur(18px)
+}
+
+.back-link {
+    font-size: 11px;
+    color: var(--muted)
+}
+
+.auth-heading {
+    text-align: center;
+    margin: 23px 0 24px
+}
+
+.auth-heading .eyebrow {
+    text-align: center
+}
+
+.auth-heading h1 {
+    font-size: 26px;
+    letter-spacing: -1px;
+    margin: 8px 0
+}
+
+.auth-heading p {
+    font-size: 12px;
+    color: var(--muted);
+    margin: 0
+}
+
+.auth-card form>label {
+    margin-top: 15px
+}
+
+.create-btn {
+    margin-top: 22px
+}

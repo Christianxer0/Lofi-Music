@@ -1,0 +1,241 @@
+@media(max-width:1000px) {
+    .sidebar {
+        width: 205px
+    }
+
+    .app-main {
+        margin-left: 205px;
+        padding: 30px 24px
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr 1fr
+    }
+
+    .study-room-card {
+        grid-column: 1/-1
+    }
+
+    .music-page-grid,
+    .pomodoro-layout {
+        grid-template-columns: 1fr
+    }
+
+    .now-playing {
+        max-width: 600px;
+        width: 100%;
+        margin: auto
+    }
+
+    .vibe-picker,
+    .timer-settings {
+        width: 100%
+    }
+
+    .hero {
+        gap: 20px
+    }
+
+    .hero-art {
+        transform: scale(.9)
+    }
+}
+
+@media(max-width:760px) {
+    .wrap {
+        width: min(calc(100% - 32px), var(--max-width))
+    }
+
+    .navbar {
+        height: auto;
+        padding: 18px 0;
+        align-items: flex-start;
+        gap: 15px
+    }
+
+    .navbar nav {
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: flex-end
+    }
+
+    .navbar nav>a:not(.btn) {
+        display: none
+    }
+
+    .navbar nav .btn {
+        padding: 8px 10px;
+        font-size: 11px
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        padding-top: 30px;
+        gap: 0
+    }
+
+    .hero-copy h1 {
+        font-size: 52px
+    }
+
+    .hero-art {
+        height: 310px;
+        transform: scale(.85);
+        margin-top: -8px
+    }
+
+    .features-section {
+        padding-top: 30px
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr
+    }
+
+    .feature-card p {
+        min-height: 0
+    }
+
+    .sidebar {
+        position: static;
+        width: auto;
+        height: auto;
+        padding: 13px 16px;
+        display: block;
+        border-right: 0;
+        border-bottom: 1px solid var(--border)
+    }
+
+    .sidebar .brand {
+        margin: 0 0 12px
+    }
+
+    .sidebar-label,
+    .sidebar-bottom,
+    .side-link:not(.active) {
+        display: none
+    }
+
+    .sidebar .side-link.active {
+        display: inline-flex;
+        width: auto;
+        margin: 0;
+        padding: 7px 10px
+    }
+
+    .sidebar .side-link.active span {
+        display: inline
+    }
+
+    .app-main {
+        margin-left: 0;
+        padding: 25px 16px
+    }
+
+    .app-topbar {
+        align-items: flex-start
+    }
+
+    .app-topbar h1 {
+        font-size: 24px
+    }
+
+    .topbar-actions .status-pill {
+        display: none
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr
+    }
+
+    .study-room-card {
+        grid-column: auto
+    }
+
+    .room-card-footer {
+        align-items: flex-start;
+        flex-direction: column
+    }
+
+    .room-card-footer .btn {
+        width: 100%
+    }
+
+    .music-page-grid {
+        grid-template-columns: 1fr
+    }
+
+    .pomodoro-layout {
+        grid-template-columns: 1fr
+    }
+
+    .app-footer {
+        font-size: 9px
+    }
+
+    .auth-card {
+        padding: 25px 22px;
+        margin-top: 22px
+    }
+
+    .auth-brand {
+        margin-left: 0
+    }
+}
+
+@media(max-width:420px) {
+    .brand {
+        font-size: 14px
+    }
+
+    .navbar nav .btn-ghost {
+        display: none
+    }
+
+    .hero-copy h1 {
+        font-size: 43px;
+        letter-spacing: -2px
+    }
+
+    .hero-actions .btn {
+        width: 100%
+    }
+
+    .hero-art {
+        margin-inline: -25px;
+        transform: scale(.78)
+    }
+
+    .app-topbar {
+        display: block
+    }
+
+    .app-topbar .status-pill {
+        display: inline-flex;
+        margin-top: 12px
+    }
+
+    .timer-card {
+        padding: 17px
+    }
+
+    .timer-tabs {
+        width: 100%
+    }
+
+    .timer-mode {
+        padding: 8px 9px
+    }
+
+    .timer-controls {
+        flex-wrap: wrap
+    }
+
+    .timer-controls .btn {
+        flex: 1
+    }
+
+    .vibe-art {
+        height: 78px
+    }
+}

@@ -1,0 +1,234 @@
+@import url('variables.css');
+
+* {
+    box-sizing: border-box
+}
+
+html {
+    scroll-behavior: smooth
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font);
+    font-size: 15px;
+    line-height: 1.6
+}
+
+a {
+    color: inherit;
+    text-decoration: none
+}
+
+button,
+input {
+    font: inherit
+}
+
+button {
+    cursor: pointer
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+    outline: 2px solid var(--purple);
+    outline-offset: 3px
+}
+
+.wrap {
+    width: min(calc(100% - 48px), var(--max-width));
+    margin-inline: auto
+}
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 17px;
+    letter-spacing: -.5px;
+    font-weight: 500;
+    white-space: nowrap
+}
+
+.brand b {
+    font-weight: 700
+}
+
+.brand-icon {
+    display: grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 11px;
+    background: linear-gradient(135deg, #a88bff, #eaa0c5);
+    color: #211a35;
+    font-size: 21px
+}
+
+.navbar {
+    height: 88px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between
+}
+
+.navbar nav {
+    display: flex;
+    align-items: center;
+    gap: 27px;
+    color: var(--muted);
+    font-size: 13px
+}
+
+.navbar nav a:hover,
+.text-link:hover {
+    color: var(--text)
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    border: 1px solid transparent;
+    border-radius: 12px;
+    padding: 10px 16px;
+    font-weight: 650;
+    font-size: 13px;
+    transition: transform .2s, background .2s, border-color .2s
+}
+
+.btn:hover {
+    transform: translateY(-1px)
+}
+
+.btn-primary {
+    background: var(--purple);
+    color: #211a35;
+    box-shadow: 0 8px 24px #a88bff24
+}
+
+.btn-primary:hover {
+    background: #b7a1ff
+}
+
+.btn-ghost {
+    border-color: var(--border);
+    background: #ffffff04;
+    color: var(--text)
+}
+
+.btn-ghost:hover {
+    background: #ffffff0a;
+    border-color: #56516e
+}
+
+.btn-large {
+    padding: 14px 19px
+}
+
+.btn-full {
+    width: 100%;
+    min-height: 46px
+}
+
+.eyebrow {
+    display: block;
+    color: var(--purple);
+    font-size: 10px;
+    letter-spacing: 1.8px;
+    font-weight: 800
+}
+
+.muted {
+    color: var(--muted)
+}
+
+.card {
+    background: linear-gradient(145deg, #252536, #20202e);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    box-shadow: var(--shadow)
+}
+
+.section-heading {
+    text-align: center;
+    margin: 0 auto 34px;
+    max-width: 560px
+}
+
+.section-heading h2 {
+    font-size: 30px;
+    letter-spacing: -1px;
+    margin: 8px 0
+}
+
+.section-heading p,
+.hero-copy p {
+    color: var(--muted)
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid var(--border);
+    padding: 22px 0;
+    color: var(--muted);
+    font-size: 12px
+}
+
+.text-link {
+    font-size: 12px;
+    color: var(--purple);
+    font-weight: 650
+}
+
+.tag {
+    font-size: 9px;
+    letter-spacing: 1.2px;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 5px 8px;
+    color: var(--muted)
+}
+
+.card-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px
+}
+
+.card-heading h2 {
+    font-size: 19px;
+    margin: 4px 0 0;
+    letter-spacing: -.4px
+}
+
+.status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid var(--border);
+    border-radius: 30px;
+    padding: 8px 12px;
+    color: var(--muted);
+    font-size: 11px;
+    white-space: nowrap
+}
+
+.status-pill i {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #8ed9b3;
+    box-shadow: 0 0 12px #8ed9b388
+}
+
+.app-page {
+    background: radial-gradient(ellipse at 70% -10%, #342b4b 0, transparent 42%), var(--bg)
+}

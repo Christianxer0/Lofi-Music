@@ -1,0 +1,399 @@
+.music-page-grid {
+    display: grid;
+    grid-template-columns: minmax(300px, .9fr) minmax(360px, 1.1fr);
+    gap: 18px
+}
+
+.now-playing,
+.vibe-picker {
+    min-width: 0
+}
+
+.now-playing {
+    text-align: center
+}
+
+.now-playing>.eyebrow {
+    text-align: left
+}
+
+.large-album {
+    width: min(100%, 270px);
+    aspect-ratio: 1;
+    margin: 20px auto;
+    border-radius: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: radial-gradient(circle at 30% 20%, #b1a0cf, #5d5d88 40%, #242942 75%);
+    box-shadow: 0 20px 40px #0004;
+    color: #f6d8ed;
+    font-size: 70px;
+    position: relative;
+    overflow: hidden
+}
+
+.large-album:before,
+.large-album:after {
+    content: "";
+    position: absolute;
+    border: 1px solid #ffffff22;
+    border-radius: 50%;
+    width: 230px;
+    height: 230px
+}
+
+.large-album:after {
+    width: 180px;
+    height: 180px
+}
+
+.large-album span,
+.large-album small {
+    z-index: 1
+}
+
+.large-album small {
+    font-size: 10px;
+    letter-spacing: 2px
+}
+
+.track-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    gap: 12px
+}
+
+.track-details h2 {
+    font-size: 17px;
+    margin: 0
+}
+
+.track-details p {
+    font-size: 11px;
+    color: var(--muted);
+    margin: 3px 0
+}
+
+.track-progress {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin: 20px 0 15px;
+    color: var(--muted);
+    font-size: 9px
+}
+
+.progress-track {
+    height: 4px;
+    border-radius: 10px;
+    background: #414052;
+    flex: 1;
+    overflow: hidden
+}
+
+.progress-track div {
+    height: 100%;
+    width: 0;
+    background: var(--purple);
+    transition: width .2s
+}
+
+.player-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px
+}
+
+.round-control {
+    border: 0;
+    background: none;
+    color: var(--muted);
+    font-size: 22px
+}
+
+.big-play {
+    width: 48px;
+    height: 48px;
+    font-size: 15px
+}
+
+.player-hint {
+    font-size: 10px;
+    color: var(--muted);
+    margin: 16px 0 0
+}
+
+.vibe-picker>p {
+    color: var(--muted);
+    font-size: 12px
+}
+
+.vibe-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 22px
+}
+
+.vibe-tile {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3px;
+    padding: 9px;
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    background: #ffffff03;
+    text-align: left;
+    color: var(--text)
+}
+
+.vibe-tile:hover,
+.vibe-tile.active {
+    border-color: #a88bff88;
+    background: #a88bff0a
+}
+
+.vibe-art {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 95px;
+    border-radius: 9px;
+    font-size: 30px;
+    margin-bottom: 5px
+}
+
+.vibe-tile strong {
+    font-size: 11px
+}
+
+.vibe-tile small {
+    font-size: 9px;
+    color: var(--muted)
+}
+
+.note-panel {
+    display: flex;
+    gap: 12px;
+    padding: 14px;
+    margin-top: 22px;
+    border: 1px solid #a88bff22;
+    border-radius: 12px;
+    background: #a88bff09
+}
+
+.note-panel>span {
+    color: var(--purple);
+    font-size: 20px
+}
+
+.note-panel strong {
+    font-size: 11px
+}
+
+.note-panel p {
+    font-size: 10px;
+    color: var(--muted);
+    margin: 3px 0 0;
+    line-height: 1.6
+}
+
+.pomodoro-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(270px, .75fr);
+    gap: 18px;
+    align-items: start
+}
+
+.timer-card {
+    text-align: center;
+    padding: 24px
+}
+
+.timer-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    padding: 5px;
+    border-radius: 12px;
+    background: #171722;
+    max-width: 370px;
+    margin: 0 auto 20px
+}
+
+.timer-mode {
+    border: 0;
+    border-radius: 9px;
+    background: transparent;
+    color: var(--muted);
+    font-size: 11px;
+    padding: 9px 14px
+}
+
+.timer-mode.active {
+    background: #a88bff20;
+    color: var(--purple)
+}
+
+.timer-ring {
+    width: min(100%, 300px);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    display: grid;
+    place-items: center;
+    background: conic-gradient(var(--purple) 0deg, #49435d 0deg 360deg);
+    position: relative
+}
+
+.timer-ring:before {
+    content: "";
+    position: absolute;
+    inset: 9px;
+    border-radius: 50%;
+    background: #222230;
+    border: 1px solid #ffffff0a
+}
+
+.timer-inner {
+    z-index: 1;
+    display: grid;
+    justify-items: center
+}
+
+.timer-label {
+    font-size: 9px;
+    letter-spacing: 1.6px;
+    color: var(--purple);
+    font-weight: 800
+}
+
+.timer-inner strong {
+    font-size: clamp(40px, 5vw, 58px);
+    line-height: 1.35;
+    letter-spacing: -2px;
+    font-variant-numeric: tabular-nums
+}
+
+.timer-session {
+    font-size: 8px;
+    color: var(--muted);
+    letter-spacing: 1px
+}
+
+.timer-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px
+}
+
+.timer-status {
+    font-size: 11px;
+    color: var(--muted);
+    margin: 18px 0 0
+}
+
+.timer-settings h2 {
+    font-size: 19px;
+    margin: 5px 0
+}
+
+.timer-settings>p {
+    font-size: 11px;
+    color: var(--muted);
+    margin: 0 0 20px
+}
+
+.timer-settings form label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center
+}
+
+.timer-settings form label span {
+    font-size: 10px;
+    color: var(--muted);
+    font-weight: 400
+}
+
+.timer-settings form input {
+    padding: 10px 12px
+}
+
+.timer-settings form .btn {
+    margin-top: 18px
+}
+
+.setting-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 15px 0;
+    border-top: 1px solid var(--border);
+    margin-top: 14px
+}
+
+.setting-toggle strong,
+.setting-toggle small {
+    display: block
+}
+
+.setting-toggle strong {
+    font-size: 11px
+}
+
+.setting-toggle small {
+    font-size: 9px;
+    color: var(--muted)
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 36px;
+    height: 20px;
+    margin: 0;
+    flex-shrink: 0
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0
+}
+
+.switch span {
+    position: absolute;
+    inset: 0;
+    background: #454356;
+    border-radius: 20px;
+    transition: .2s
+}
+
+.switch span:before {
+    content: "";
+    position: absolute;
+    left: 3px;
+    top: 3px;
+    width: 14px;
+    height: 14px;
+    background: #fff;
+    border-radius: 50%;
+    transition: .2s
+}
+
+.switch input:checked+span {
+    background: var(--purple)
+}
+
+.switch input:checked+span:before {
+    transform: translateX(16px);
+    background: #211a35
+}
