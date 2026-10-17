@@ -1598,3 +1598,499 @@ body[data-vibe="forest"] {
         transition-duration: 0.01ms !important;
     }
 }
+
+/* ============================================================
+   §20  ROOM PAGE  (added Phase 1)
+   Static preview. Real WebRTC arrives Phase 4, real chat Phase 5.
+   No microphone controls exist anywhere (blueprint §2.6).
+   ============================================================ */
+
+/* --- room topbar --- */
+
+.room-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text);
+    font-size: 0.92rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+}
+
+.back-icon {
+    display: grid;
+    place-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 10px;
+    color: var(--peach);
+    background: rgba(40, 27, 43, 0.75);
+    font-size: 0.9rem;
+}
+
+.room-topbar-status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: #d0c1cb;
+    font-size: 0.78rem;
+}
+
+.room-badge {
+    padding: 4px 9px;
+    border: 1px solid rgba(158, 216, 184, 0.35);
+    border-radius: 8px;
+    color: var(--green);
+    background: rgba(158, 216, 184, 0.08);
+    font-size: 0.6rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+}
+
+.theme-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    min-height: 38px;
+    padding: 8px 14px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    color: var(--text);
+    background: rgba(40, 27, 43, 0.75);
+    font-size: 0.72rem;
+    font-weight: 700;
+    transition: background var(--transition);
+}
+
+.theme-pill:hover {
+    background: rgba(105, 81, 111, 0.7);
+}
+
+/* --- room layout --- */
+
+.room-layout {
+    width: min(var(--max-width), 100%);
+    min-height: calc(100vh - 74px);
+    margin: 0 auto;
+    padding: clamp(16px, 2.4vw, 30px);
+    padding-bottom: 120px; /* space for floating control bar */
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 340px);
+    gap: 18px;
+    align-items: stretch;
+}
+
+/* --- stage --- */
+
+.room-stage {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    min-width: 0;
+}
+
+.room-status-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 0 4px;
+    color: #d0c1cb;
+    font-size: 0.78rem;
+}
+
+.room-status-left {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.room-status-right {
+    color: var(--muted);
+    font-size: 0.72rem;
+}
+
+.camera-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: minmax(180px, 1fr);
+    gap: 14px;
+}
+
+.camera-tile {
+    position: relative;
+    min-height: 180px;
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    background: linear-gradient(
+        145deg,
+        rgba(43, 29, 46, 0.94),
+        rgba(28, 18, 32, 0.95)
+    );
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.tile-avatar {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    color: #fff9f1;
+    font-size: 2.4rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+}
+
+.tile-menu {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 30px;
+    height: 30px;
+    border: 0;
+    border-radius: 9px;
+    color: var(--text);
+    background: rgba(20, 12, 22, 0.6);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    font-size: 0.9rem;
+    line-height: 1;
+}
+
+.tile-menu:hover {
+    background: rgba(20, 12, 22, 0.85);
+}
+
+.tile-label {
+    position: absolute;
+    left: 12px;
+    bottom: 12px;
+    max-width: calc(100% - 24px);
+    padding: 7px 11px;
+    border-radius: 11px;
+    background: rgba(20, 12, 22, 0.72);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.tile-label strong {
+    display: block;
+    color: var(--text);
+    font-size: 0.72rem;
+    font-weight: 800;
+}
+
+.tile-label small {
+    display: block;
+    overflow: hidden;
+    color: var(--muted);
+    font-size: 0.6rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* --- chat panel --- */
+
+.chat-panel {
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    max-height: calc(100vh - 74px - 36px - 100px);
+}
+
+.chat-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.chat-heading h2 {
+    margin-bottom: 0;
+    font-size: 1rem;
+}
+
+.chat-filter {
+    margin-bottom: 14px;
+}
+
+.chat-select {
+    width: 100%;
+    min-height: 36px;
+    padding: 8px 10px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: var(--text);
+    background: rgba(20, 13, 24, 0.65);
+    font-size: 0.75rem;
+}
+
+.chat-log {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 4px;
+    scrollbar-width: thin;
+}
+
+.chat-day {
+    margin: 4px 0;
+    color: var(--muted);
+    font-size: 0.6rem;
+    letter-spacing: 0.16em;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.chat-message {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.chat-meta {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+}
+
+.chat-meta strong {
+    font-size: 0.75rem;
+}
+
+.chat-meta small {
+    color: var(--muted);
+    font-size: 0.62rem;
+}
+
+.chat-message p {
+    margin: 0;
+    padding: 9px 12px;
+    border-radius: 12px;
+    background: rgba(50, 33, 53, 0.6);
+    color: #f0e0e5;
+    font-size: 0.75rem;
+    line-height: 1.55;
+    word-wrap: break-word;
+}
+
+.chat-system {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.65rem;
+    text-align: center;
+}
+
+.chat-compose {
+    margin-top: 14px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 8px;
+    align-items: center;
+}
+
+.chat-compose .form-message {
+    grid-column: 1 / -1;
+    margin-bottom: 0;
+}
+
+.chat-compose input {
+    min-height: 40px;
+    padding: 0 14px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    outline: 0;
+    color: var(--text);
+    background: rgba(20, 13, 24, 0.65);
+    font-size: 0.78rem;
+}
+
+.chat-compose input:focus {
+    border-color: var(--peach);
+}
+
+.chat-compose input::placeholder {
+    color: #847284;
+}
+
+.chat-send {
+    width: 40px;
+    height: 40px;
+    border: 0;
+    border-radius: 12px;
+    color: #382337;
+    background: var(--peach);
+    display: grid;
+    place-items: center;
+    transition: filter var(--transition), transform var(--transition);
+}
+
+.chat-send:hover {
+    filter: brightness(1.07);
+    transform: translateY(-1px);
+}
+
+/* --- floating control bar --- */
+
+.room-bottom-bar {
+    position: fixed;
+    bottom: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+    display: flex;
+    align-items: stretch;
+    gap: 2px;
+    padding: 6px;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    background: rgba(24, 14, 22, 0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: var(--shadow);
+}
+
+.room-control {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    min-width: 68px;
+    padding: 8px 12px;
+    border: 0;
+    border-radius: 12px;
+    color: var(--text);
+    background: transparent;
+    text-align: center;
+    transition: background var(--transition);
+}
+
+.room-control > span:first-child {
+    font-size: 1rem;
+    line-height: 1;
+}
+
+.room-control small {
+    color: var(--muted);
+    font-size: 0.6rem;
+    font-weight: 600;
+}
+
+.room-control:hover {
+    background: rgba(221, 171, 182, 0.12);
+}
+
+.room-control-danger {
+    color: var(--peach-light);
+    background: rgba(180, 100, 110, 0.15);
+}
+
+.room-control-danger small {
+    color: #e8bad2;
+}
+
+.room-control-danger:hover {
+    background: rgba(180, 100, 110, 0.25);
+}
+
+.control-badge {
+    position: absolute;
+    top: 6px;
+    right: 10px;
+    min-width: 16px;
+    height: 16px;
+    padding: 0 4px;
+    border-radius: 8px;
+    color: #382337;
+    background: var(--peach);
+    font-size: 0.58rem;
+    font-weight: 800;
+    display: grid;
+    place-items: center;
+}
+
+/* --- room responsive --- */
+
+@media (max-width: 1050px) {
+    .room-layout {
+        grid-template-columns: 1fr;
+        padding-bottom: 130px;
+    }
+
+    .chat-panel {
+        max-height: 420px;
+    }
+}
+
+@media (max-width: 720px) {
+    .room-layout {
+        padding: 14px 14px 140px;
+    }
+
+    .room-status-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+    }
+
+    .camera-grid {
+        grid-template-columns: 1fr;
+        grid-auto-rows: minmax(160px, auto);
+    }
+
+    .tile-avatar {
+        width: 80px;
+        height: 80px;
+        font-size: 1.8rem;
+    }
+
+    .room-bottom-bar {
+        left: 12px;
+        right: 12px;
+        transform: none;
+        justify-content: flex-start;
+        overflow-x: auto;
+        scrollbar-width: none;
+    }
+
+    .room-bottom-bar::-webkit-scrollbar {
+        display: none;
+    }
+
+    .room-control {
+        min-width: 60px;
+        padding: 8px;
+    }
+
+    .room-control small {
+        font-size: 0.55rem;
+    }
+}
+
+@media (max-width: 420px) {
+    .room-topbar-status {
+        order: 3;
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .theme-pill {
+        padding: 6px 10px;
+        font-size: 0.65rem;
+    }
+}

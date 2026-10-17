@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#1b121d">
     <title>Your Study Room — LoFi Room</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
 </head>
+
 <body class="app-page" data-vibe="rainy-night">
     <header class="app-topbar">
         <a class="brand" href="?page=dashboard">
@@ -137,17 +139,12 @@
             </div>
 
             <!-- Phase 1: static preview. Becomes ?page=room link once pages/room.php exists. -->
-            <button class="button room-join"
-                    id="joinRoom"
-                    data-demo="true"
-                    title="Room view arrives in Phase 1 (pages/room.php)">
+            <a class="button room-join" href="?page=room">
                 <span aria-hidden="true">▣</span>&nbsp; Join the quiet room
-            </button>
+            </a>
 
-            <button class="button button-ghost room-invite"
-                    id="inviteBuddy"
-                    data-demo="true"
-                    title="Invitations arrive in Phase 3">
+            <button class="button button-ghost room-invite" id="inviteBuddy" data-demo="true"
+                title="Invitations arrive in Phase 3">
                 <span aria-hidden="true">＋</span>&nbsp; Invite a study buddy
             </button>
 
@@ -179,10 +176,7 @@
             </div>
         </section>
 
-        <a class="immersive-button"
-           href="?page=dashboard"
-           data-demo="true"
-           title="Immersive mode arrives in Phase 8">
+        <a class="immersive-button" href="?page=dashboard" data-demo="true" title="Immersive mode arrives in Phase 8">
             <span aria-hidden="true">⛶</span>&nbsp; Immersive mode
         </a>
     </main>
@@ -191,4 +185,5 @@
     <script src="assets/js/pomodoro.js"></script>
     <script src="assets/js/music.js"></script>
 </body>
+
 </html>
