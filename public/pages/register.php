@@ -20,6 +20,7 @@
         <p class="auth-subtitle">Your peaceful corner awaits.</p>
 
         <form id="registerForm" novalidate>
+            <input type="hidden" name="csrf_token" value="<?= \App\Support\Security::generateCsrf() ?>">
             <div class="form-message" role="status" aria-live="polite" hidden></div>
 
             <label for="username">Username</label>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <title>Welcome Back — LoFi Room</title>
     <link rel="stylesheet" href="/assets/css/style.css">
 </head>
+
 <body class="auth-page">
     <a class="brand auth-brand" href="?page=home">
         <span class="brand-icon" aria-hidden="true">☕</span>
@@ -20,17 +22,14 @@
         <p class="auth-subtitle">Ready to study?</p>
 
         <form id="loginForm" novalidate>
+            <input type="hidden" name="csrf_token" value="<?= \App\Support\Security::generateCsrf() ?>">
             <div class="form-message" role="status" aria-live="polite" hidden></div>
 
             <label for="email">Email</label>
             <div class="input-wrap">
                 <span aria-hidden="true">✉</span>
-                <input id="email"
-                       name="email"
-                       type="email"
-                       autocomplete="email"
-                       placeholder="Enter your email"
-                       required>
+                <input id="email" name="email" type="email" autocomplete="email" placeholder="Enter your email"
+                    required>
             </div>
 
             <div class="label-row">
@@ -40,17 +39,10 @@
 
             <div class="input-wrap">
                 <span aria-hidden="true">♙</span>
-                <input id="password"
-                       name="password"
-                       type="password"
-                       autocomplete="current-password"
-                       placeholder="Enter your password"
-                       required>
-                <button class="input-action"
-                        type="button"
-                        id="togglePassword"
-                        aria-label="Show password"
-                        aria-pressed="false">
+                <input id="password" name="password" type="password" autocomplete="current-password"
+                    placeholder="Enter your password" required>
+                <button class="input-action" type="button" id="togglePassword" aria-label="Show password"
+                    aria-pressed="false">
                     <span aria-hidden="true">◉</span>
                 </button>
             </div>
@@ -62,11 +54,8 @@
 
         <div class="auth-divider" aria-hidden="true"><span>OR</span></div>
 
-        <button class="button button-ghost google-button"
-                id="googleLogin"
-                type="button"
-                data-demo="true"
-                title="Google sign-in will be enabled in Phase 2">
+        <button class="button button-ghost google-button" id="googleLogin" type="button" data-demo="true"
+            title="Google sign-in will be enabled in Phase 2">
             <span class="google-mark" aria-hidden="true">G</span>
             Continue with Google
         </button>
@@ -81,4 +70,5 @@
 
     <script src="assets/js/main.js"></script>
 </body>
+
 </html>
